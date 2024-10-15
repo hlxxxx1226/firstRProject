@@ -1,0 +1,188 @@
+---
+title: "Assignment"
+author: "hlx"
+date: "2024-10-14"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(Stat2Data)
+data("Hawks")
+```
+
+
+
+```{r}
+hawksSmall<-
+drop_na(select(Hawks,Age,Day,Month,Year,CaptureTime,Species,Wing,Weight
+,Tail))
+```
+
+
+
+```{r}
+dim(hawksSmall)
+head(hawksSmall,5)
+
+```
+
+
+```{r}
+ggplot(data=hawksSmall,aes(x = Weight))+
+  geom_histogram(binwidth = 5)+
+  xlab("Weight")+
+  ylab("Count")
+```
+
+
+```{r}
+ggplot(data = hawksSmall, aes(x = Tail)) +
+  geom_density(adjust=0.5)
+ggplot(data = hawksSmall, aes(x = Tail)) +
+  geom_density(adjust=2)
+```
+
+
+```{r}
+ggplot(data = hawksSmall, aes(x = Tail,color = Species)) +
+  geom_density(adjust=2)
+```
+
+
+```{r}
+ggplot(data = hawksSmall, aes(x = Tail,y=Species,fill=Species)) +
+  geom_violin()
+```
+
+
+```{r}
+ggplot(hawksSmall, aes(x=Tail, y=Weight, color=Species,shape=Species))+ 
+  geom_point() 
+```
+
+
+```{r}
+ggplot(hawksSmall, aes(x=Tail, y=Weight, color=Species) ) +
+  geom_point() +
+  facet_wrap(~Species, scales='free') +
+  geom_smooth(method='lm')
+```
+
+
+```{r}
+max_weight<-max(hawksSmall$Weight, na.rm=TRUE)#$提取符号
+max_weight_row = head(hawksSmall %>% filter(Weight>=max_weight), 1)
+max_weight_tail = max_weight_row$Tail
+```
+
+
+```{r}
+ggplot(hawksSmall, aes(x = Tail, y = Weight, color = Species)) + 
+  geom_point() +
+  geom_curve(x = max_weight_tail, xend = max_weight_tail, y = max_weight - 200, yend = max_weight,
+             arrow = arrow(length = unit(0.1, "cm")), color = "black") +
+  geom_text(x = max_weight_tail, y = max_weight - 200, label = 'heaviest hawk', 
+            size = 3, color = "black")
+#这段代码就是为了绘制可以标记的曲线记号
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
+```
